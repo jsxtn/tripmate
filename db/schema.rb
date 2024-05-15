@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_14_132248) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_15_170141) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +39,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_14_132248) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "answer1"
+    t.string "answer3"
+    t.text "answer4"
+    t.text "answer5"
+    t.text "answer6"
+    t.text "ai_prompt"
+    t.text "ai_response"
     t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
 
