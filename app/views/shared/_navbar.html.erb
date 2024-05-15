@@ -1,13 +1,41 @@
+     <%# need to add log out link%>
+
+<nav class="navbar navbar-top">
+  <a class="navbar-top" href="#"></a>
+    <ul class= "nav nav-pills d-flex justify-content-around w-100">
+      <li class="nav-item">
+        <%# a class="nav-link" href="/users/sign_out" %>
+        <%= link_to image_tag("https://static.vecteezy.com/system/resources/thumbnails/006/184/737/small/logout-sign-out-icon-in-line-style-vector.jpg"), destroy_user_session_path, data: {turbo_method: :delete}, class: "log-out-nav-icon height:20px" %>
+      </li>
+    </ul>
+</nav>
+
+
 <nav class="navbar fixed-bottom navbar-sm">
   <div class="container-fluid">
 
-    <ul class="nav nav-pills d-flex justify-content-around w-100">
+    <ul class="nav nav-pills d-flex align-items-center justify-content-around w-100">
+
+      <li class="nav-item">
+        <a class="nav-link" href="/">
+          <%= image_tag "icons/home_icon.png", alt: "Home", class: "nav-icon" %>
+        </a>
+      </li>
 
       <li class="nav-item">
         <a class="nav-link" href="/itineraries">
-          <%= image_tag "icons/user_icon.png", alt: "User", class: "nav-icon" %>
+          <%= image_tag "icons/search_icon.png", alt: "Search", class: "nav-icon" %>
         </a>
       </li>
+
+     <div class= "plus">
+       <li>
+        <a class="btn btn-tripmate" href="/itineraries/new">
+          <i class="fas fa-plus"></i>
+        </a>
+       </li>
+     </div>
+
 
       <li class="nav-item">
         <a class="nav-link" href="/itineraries/new">
@@ -15,30 +43,13 @@
         </a>
       </li>
 
-       <li class="nav-item">
-        <a class="nav-link add-btn btn-tripmate" href="/itineraries/new">
-          <i class="fas fa-plus"></i>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="/">
-          <%= image_tag "icons/home_icon.png", alt: "Home", class: "nav-icon" %>
-        </a>
-      </li>
-
-     <%# need to add log out%>
-      <%# <li class="nav-item">
-        <a class="nav-link" href="/">
-          <%= image_tag "icons/home_icon.png", alt: "Home", class: "nav-icon" %>
-        <%# </a>
-      </li> %>
 
       <li class="nav-item">
         <a class="nav-link" href="/itineraries">
-          <%= image_tag "icons/search_icon.png", alt: "Search", class: "nav-icon" %>
+          <%= image_tag "icons/user_icon.png", alt: "User", class: "nav-icon" %>
         </a>
       </li>
+
     </ul>
   </div>
 </nav>
