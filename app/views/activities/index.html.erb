@@ -3,7 +3,7 @@
 <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Itenerary for your '<%=@itinerary.name%>' trip</h1>
+        <h1 class="fw-light">Itinerary for your '<%=@itinerary.name%>' trip</h1>
         <p class="lead text-body-secondary">Hey <%=@username%>, here is your customised interary for '<%=@itinerary.name%>'.  Feel free to play around with it as you wish.</p>
         <%# <p>
           <a href="#" class="btn btn-primary my-2">Main call to action</a>
@@ -20,16 +20,7 @@
 
   </section>
 
-<%#
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
-  </div>
-</div> %>
-
-<div class = "ms-4">
+<div class = "ms-4 me-4">
   <% @activities_by_datetime.each do |datetime_activities| %>
 
     <h3> <%= datetime_activities.first.datetime.strftime("%d %B %Y") %> </h3>
@@ -38,7 +29,7 @@
 
             <%= link_to activity_path(activity) do %>
 
-              <div class="card mb-3 justify-content-center ms-5">
+              <div class="card mb-3 justify-content-center ms-5 shadow">
                 <div class="row g-0">
                   <div class="col-md-1 align-content-center justify-content-center">
                       <p class="card-text text-body-secondary">
