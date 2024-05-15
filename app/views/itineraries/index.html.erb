@@ -1,1 +1,29 @@
-<%= link_to "New itinerary", "/itineraries/new" %>
+
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Hi <%=@username%></h1>
+        <p class="lead text-body-secondary">Welcome to your profile page.  Here you will find all your planned trips with all the customised itineraries.  And keep an eye out for the memories folder too!</p>
+        <%# <p>
+          <a href="#" class="btn btn-primary my-2">Main call to action</a>
+          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+        </p> %>
+      </div>
+    </div>
+
+        <section>
+          <ul>
+            <% @itineraries.each do |itinerary| %>
+            <li> <%= link_to itinerary.name, itinerary_activities_path(itinerary)%> </li>
+          <% end %>
+          </ul>
+        </section>
+
+        <section>
+          <button type="button" class="btn btn-primary btn-lg px-4 gap-3 mt-2">
+            <%= link_to "New itinerary", new_itinerary_path%>
+          </button>
+        </section>
+
+</section>
