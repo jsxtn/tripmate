@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_15_170141) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_16_115525) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_170141) do
     t.text "answer6"
     t.text "ai_prompt"
     t.text "ai_response"
+    t.string "answer2"
+    t.datetime "answer2startdate"
+    t.datetime "answer2enddate"
     t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
 
