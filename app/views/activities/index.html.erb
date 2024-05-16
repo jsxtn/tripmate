@@ -2,7 +2,7 @@
 
 <section class="py-5 text-center container">
     <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
+      <div class="col-lg-6 col-md-8 mx-auto mt-5">
         <h1 class="fw-light">Itinerary for your '<%=@itinerary.name%>' trip</h1>
         <p class="lead text-body-secondary">Hey <%=@username%>, here is your customised interary for '<%=@itinerary.name%>'.  Feel free to play around with it as you wish.</p>
         <%# <p>
@@ -32,12 +32,15 @@
               <div class="card mb-3 justify-content-center ms-5 shadow">
                 <div class="row g-0">
                   <div class="col-md-1 align-content-center justify-content-center">
-                      <p class="card-text text-body-secondary">
+                      <%# <p class="card-text text-body-secondary">
                         <%=activity.datetime.strftime("%I:%M%p") %>
-                      </p>
+                      <%#/p> %>
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
+                      <p class="card-text text-body-secondary">
+                        <%=activity.datetime.strftime("%I:%M%p") %>
+                      </p>
                       <p class="card-text">[<%=activity.category%>]</p>
                       <h5 class="card-title"><%= activity.title %></h5>
                       <p class="card-text"><small class="text-body-secondary"><%= activity.city %>, <%= activity.phone_number %></small></p>

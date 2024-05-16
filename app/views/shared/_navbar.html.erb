@@ -1,17 +1,16 @@
-     <%# need to add log out link%>
-
-<nav class="navbar navbar-top">
+<nav class="navbar navbar-top fixed-top">
   <a class="navbar-top" href="#"></a>
     <ul class= "nav nav-pills d-flex justify-content-around w-100">
-      <li class="nav-item">
-        <%# a class="nav-link" href="/users/sign_out" %>
-        <%= link_to image_tag("https://static.vecteezy.com/system/resources/thumbnails/006/184/737/small/logout-sign-out-icon-in-line-style-vector.jpg"), destroy_user_session_path, data: {turbo_method: :delete}, class: "log-out-nav-icon height:20px" %>
+      <li class="nav-item me-auto">
+        <%= link_to :back do %>
+          <%= image_tag "https://static.thenounproject.com/png/5892202-200.png", class: "back-icon" %>
+        <% end %>
       </li>
     </ul>
 </nav>
 
 
-<nav class="navbar fixed-bottom navbar-sm">
+<nav class="navbar fixed-bottom justify-content-center ">
   <div class="container-fluid">
 
     <ul class="nav nav-pills d-flex align-items-center justify-content-around w-100">
@@ -44,9 +43,18 @@
       </li>
 
 
+
+
+      <li class="nav-item dropup">
+        <%= image_tag "icons/user_icon.png", class: 'avatar dropdown-toggle nav-icon', data: { bs_toggle: 'dropdown' }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/itineraries">Dashboard</a>
+          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+        </div>
+      </li>
+
       <li class="nav-item">
         <a class="nav-link" href="/itineraries">
-          <%= image_tag "icons/user_icon.png", alt: "User", class: "nav-icon" %>
         </a>
       </li>
 
