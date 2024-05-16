@@ -1,3 +1,23 @@
-<%= link_to "Create itinerary!", "/itineraries/:id" %>
+
 
 <%= render "form" %>
+
+<div class="py-1 justify-content-center">
+    <div class="row py-lg-5 text-center">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Hey <%=@username%>!  Ok so lets find out more details to build that dream holiday of yours.</h1>
+        <p class="lead text-body-secondary">Lets start by answering a few questions for us:</p>
+        </div>
+        </div>
+
+        <div class="m-4 justify-content-center">
+        <div class="card-body">
+        <%= render "form", itinerary: @itinerary%>
+      </div>
+    </div>
+
+
+
+
+</div>
+

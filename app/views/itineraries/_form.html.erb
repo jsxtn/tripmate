@@ -1,10 +1,14 @@
 
 <!-- app/views/restaurants/_form.html.erb -->
 <%= simple_form_for(itinerary) do |f| %>
-  <%= f.input :answer1 %>
-  <%= f.input :answer3 %>
-  <%= f.input :answer4 %>
-  <%= f.input :answer5 %>
-  <%= f.input :answer6 %>
-  <%= f.submit %>
+  <%= f.input :answer1, label: "Where do you want to go?" %>
+  <p>Please enter the dates you want to go.</p>
+  <%= f.date_field :start_date %>
+  <%= f.date_field :end_date %>
+  <p></p>
+  <%= f.input :answer3, label: "What cities do you want to visit?"  %>
+  <%= f.input :answer4, label: "What type of activities do you like to do?  E.g. sight-seeing, nightclubs, beaches etc"  %>
+  <%= f.input :answer5, label: "What type of cuisine preferences do you have?  Are there any dietary preferences/requirements to consider?"  %>
+  <%= f.input :answer6, label: "Do you or anyone in your travelling group have any accessibility requirements?"  %>
+  <%= f.submit class: "btn btn-tripmate-black my-2 lg-5"%>
 <% end %>
