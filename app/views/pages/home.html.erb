@@ -1,8 +1,21 @@
-<div class="container h-100 col-12 d-flex align-items-center justify-content-center">
-  <div class= "container-xxl mt-5 d-flex align-items-center justify-content-center">
-      <%= link_to "LOG IN", "/users/sign_in", class: "btn btn-outline-dark rounded-3 col-6 me-1" %>
-      <%= link_to "REGISTER", "/users/sign_up", class: "btn btn-dark w-4 rounded-3 col-6 ms-1" %>
+<section>
+  <div class="video-overlay"></div>
+
+    <video autoplay muted loop id="myVideo">
+      <source src="https://res.cloudinary.com/dopxbkgda/video/upload/v1715892183/3121459-uhd_2560_1440_24fps_ztatny.mp4" type="video/mp4">
+    </video>
+
+  <div class="logo-cont container-fluid position-absolute d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="500">
+    <img id="landing-logo" src="https://res.cloudinary.com/dopxbkgda/image/upload/v1715705819/tripmate_logo_trans_crop_w44ekt.png">
+    <%# <img id="landing-logo" src="https://res.cloudinary.com/dopxbkgda/image/upload/v1715901167/tripmate_logo_123_crop_shadow_ifg0av.png"> %>
+  </div>
+</section>
+
+<div class="container-fluid min-vh-100 d-flex align-items-end justify-content-center mt-5">
+  <div class= "container-fluid d-flex align-items-bottom justify-content-center mb-5 pb-5">
+    <div class="container-fluid d-flex align-items-center justify-content-center pb-2">
+      <%= link_to "LOG IN", "/users/sign_in", class: "btn-login border-3 rounded-3 col-6 me-1 ms-0 pt-3 pb-3" %>
+      <%= link_to "REGISTER", "/users/sign_up", class: "btn-register border-3 rounded-3 col-6 ms-1 pt-3 pb-3" %>
+    </div>
   </div>
 </div>
-
-<%# <button class="btn-tripmate">+</button> %>

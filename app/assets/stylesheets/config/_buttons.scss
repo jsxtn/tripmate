@@ -1,0 +1,55 @@
+.btn-tripmate {
+  background: linear-gradient(to right, #20e37a, #20cae3);
+  border-style: none;
+  border-radius: 30px;
+  color: #FEFEFE;
+  width: 96px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-tripmate-black{
+  border-radius: 6px;
+  background-color: #1c1917;
+  color: #FEFEFE;
+  width: 100%;
+}
+
+.btn-login {
+  background-color: none;
+  color: #1c1917;
+  border-style: solid;
+  border-color: #1c1917;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  transition: all .1s ease-in-out;
+  font-weight: bold;
+}
+
+.btn-login:active {
+	transform: scale(1.02);
+	transition: .1s;
+}
+
+
+.btn-register {
+  background-color: #1c1917;
+  color: #FEFEFE;
+  border-style: solid;
+  border-color: #1c1917;
+  border-radius: 6px;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  transition: all .1s ease-in-out;
+  font-weight: 550;
+
+}
+
+.btn-register:active {
+	transform: scale(1.02);
+	transition: .1s;
+}
