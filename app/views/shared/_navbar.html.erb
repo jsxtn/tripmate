@@ -1,5 +1,4 @@
 <nav class="navbar navbar-top fixed-top">
-  <a class="navbar-top" href="#"></a>
     <ul class= "nav nav-pills d-flex justify-content-around w-100">
       <li class="nav-item me-auto">
         <%= link_to :back do %>
@@ -13,7 +12,7 @@
 <nav class="navbar fixed-bottom justify-content-center ">
   <div class="container-fluid">
 
-    <ul class="nav nav-pills d-flex align-items-center justify-content-around w-100">
+    <ul class="nav nav-pills d-flex align-items-center justify-content-between w-100 me-3">
 
       <li class="nav-item">
         <a class="nav-link" href="/">
@@ -46,17 +45,13 @@
 
 
       <li class="nav-item dropup">
-        <%= image_tag "icons/user_icon.png", class: 'avatar dropdown-toggle nav-icon', data: { bs_toggle: 'dropdown' }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "icons/user_icon.png", class: 'dropdown-toggle nav-icon ', data: { bs_toggle: 'dropdown' }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/itineraries">Dashboard</a>
           <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
         </div>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="/itineraries">
-        </a>
-      </li>
 
     </ul>
   </div>
