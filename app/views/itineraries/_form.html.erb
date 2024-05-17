@@ -1,6 +1,6 @@
 
 <!-- app/views/restaurants/_form.html.erb -->
-<%= simple_form_for(itinerary) do |f| %>
+<%= simple_form_for(@itinerary) do |f| %>
   <%= f.input :answer1, label: "Where do you want to go?" %>
   <p>Please enter the dates you want to go.</p>
   <%= f.date_field :start_date %>
