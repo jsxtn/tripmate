@@ -1,55 +1,54 @@
 
 
-<section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto mt-5">
-        <h1 class="fw-light">Itinerary for your '<%=@itinerary.name%>' trip</h1>
-        <p class="lead text-body-secondary">Hey <%=@username%>, here is your customised interary for '<%=@itinerary.name%>'.  Feel free to play around with it as you wish.</p>
-        <%# <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-        </p> %>
-      </div>
+<div class="container-xl pt-5 text-center">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto mt-5">
+      <h1 class="fw-light"><%=@itinerary.name%></h1>
+      <p class="lead text-body-secondary">Hey <%=@username%>, here is your personalised itinerary! Have a great time on your travels.</p>
+      <%# <p>
+        <a href="#" class="btn btn-primary my-2">Main call to action</a>
+        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+      </p> %>
     </div>
+  </div>
 
 
-    <div class="py-5 text-center container">
-      <a class="btn btn-primary btn-lg px-4 gap-3 mt-2" <%= link_to "My Itineraries", itineraries_path%></a>
-    </div>
+  <%# <div class="py-5 text-center container"> %>
+    <%# <a class="btn btn-primary btn-lg px-4 gap-3 mt-2" <%= link_to "My Itineraries", itineraries_path%>
+    <%# </a> %>
+  <%# </div> %>
 
+  <div class = "ms-4 me-4">
+    <% @activities_by_datetime.each do |datetime_activities| %>
 
-  </section>
+      <h3> <%= datetime_activities.first.datetime.strftime("%d %B %Y") %> </h3>
 
-<div class = "ms-4 me-4">
-  <% @activities_by_datetime.each do |datetime_activities| %>
+          <% datetime_activities.each do |activity| %>
 
-    <h3> <%= datetime_activities.first.datetime.strftime("%d %B %Y") %> </h3>
+              <%= link_to activity_path(activity) do %>
 
-        <% datetime_activities.each do |activity| %>
-
-            <%= link_to activity_path(activity) do %>
-
-              <div class="card mb-3 justify-content-center ms-5 shadow">
-                <div class="row g-0">
-                  <div class="col-md-1 align-content-center justify-content-center">
-                      <%# <p class="card-text text-body-secondary">
-                        <%=activity.datetime.strftime("%I:%M%p") %>
-                      <%#/p> %>
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <p class="card-text text-body-secondary">
-                        <%=activity.datetime.strftime("%I:%M%p") %>
-                      </p>
-                      <p class="card-text">[<%=activity.category%>]</p>
-                      <h5 class="card-title"><%= activity.title %></h5>
-                      <p class="card-text"><small class="text-body-secondary"><%= activity.city %>, <%= activity.phone_number %></small></p>
+                <div class="card mb-3 justify-content-center ms-5 shadow">
+                  <div class="row g-0">
+                    <div class="col-md-1 align-content-center justify-content-center">
+                        <%# <p class="card-text text-body-secondary">
+                          <%=activity.datetime.strftime("%I:%M%p") %>
+                        <%#/p> %>
                     </div>
-                  </div>
-                  </div>
-              </div>
-              <%end%>
-        <% end %>
-   <% end %>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <p class="card-text text-body-secondary">
+                          <%=activity.datetime.strftime("%I:%M%p") %>
+                        </p>
+                        <p class="card-text">[<%=activity.category%>]</p>
+                        <h5 class="card-title"><%= activity.title %></h5>
+                        <p class="card-text"><small class="text-body-secondary"><%= activity.city %>, <%= activity.phone_number %></small></p>
+                      </div>
+                    </div>
+                    </div>
+                </div>
+                <%end%>
+          <% end %>
+    <% end %>
 
+  </div>
 </div>
