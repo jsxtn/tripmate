@@ -4,7 +4,9 @@
   <div class="row py-lg-5">
     <div class="col-lg-6 col-md-8 mx-auto m-5">
       <h1 class="fw-light">Hi <%=@username%></h1>
-      <p class="lead text-body-secondary">Welcome to your profile page.  Here you will find all your planned trips with all the customised itineraries.  And keep an eye out for the memories folder too!</p>
+      <%# <p class="lead text-body-secondary">Welcome to your profile page. Here you will find all your planned trips with all the customised itineraries.  And keep an eye out for the memories folder too!</p> %>
+      <%# perhaps add this as a dismissable tooltip? %>
+
         <%# <p>
           <a href="#" class="btn btn-primary my-2">Main call to action</a>
           <a href="#" class="btn btn-secondary my-2">Secondary action</a>
@@ -32,5 +34,9 @@
   <button>
 </div>
 
-<%= render "activities/map" %>
-<%= render "memory_reel" %>
+<div>
+  <%= render "activities/map" %>
+</div>
+<div>
+  <%= render "memory_reel" %>
+</div>
