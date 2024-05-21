@@ -25,7 +25,11 @@
 }
 
 .card-body {
-  height: 201px
+  height: 201px;
+}
+
+.card-body-auto-height {
+  height: auto !important;
 }
 
 .time {
