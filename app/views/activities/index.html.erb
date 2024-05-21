@@ -1,42 +1,110 @@
-
 <%= render "shared/navbar" %>
-<section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto mt-5">
-          <h1 class="fw-light"><%=@itinerary.name%></h1>
-          <%= cl_image_tag @itinerary.photo.key, alt: "AI-generated image of the location" if @itinerary.photo.attached? %>
-          <p class="lead text-body-secondary">Hey <%=@username%>, here is your personalised itinerary! Have a great time on your travels.</p>
-      </div>
+
+
+<div>
+  <img class="banner" src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=2400">
+  <div class="act-index container title-card card shadow">
+    <div class="container">
+      <h1><%=@username%>'s trip to Thailand</h1>
+      <%# <h1><%=@itinerary.name%>
+      <%# </h1> %>
+        <%# <p>Hey <%=@username%>
+        <%# , here is your personalised itinerary!</p> %>
+        <%# refactor this just to say [username]'s trip to [country] %>
     </div>
-</section>
+    <div class="title-card-bottom-info-bar flex-row align-items-baseline justify-content-between mt-5">
+      <%= @itinerary.start_date.strftime("%b %e") %> -
+      <%= @itinerary.end_date.strftime("%b %e, %Y") %>
+      <a href="#" class="btn-tripmate-black-share"><i class="fa-solid fa-arrow-up-from-bracket"></i></a>
+    </div>
+  </div>
+</div>
+<%#div class="py-5 text-center container">
+  <%#a class="btn btn-primary btn-lg px-4 gap-3 mt-2" <%= link_to "My Itineraries", itineraries_path%></a>
+<%# </div> %>
 
-<div class = "ms-4 me-4 mb-5 pb-5">
-  <% @activities_by_datetime.each do |datetime_activities| %>
-    <h3> <%= datetime_activities.first.datetime.strftime("%d %B %Y") %> </h3>
-        <% datetime_activities.each do |activity| %>
-            <%= link_to activity_path(activity) do %>
-              <div class="card mb-3 justify-content-center ms-5 shadow container ">
-                <div class="row g-0">
+<%# collapse group test start %>
+<div class="act-list-container container-fluid mt-5">
+  <div class="act-list-container mt-5 mb-5 pb-5">
+    <div class="panel-group act-expand-control-container">
+      <button class="btn-tripmate-black-collapse" type="button" id="expandAllButton"><i class="fa-solid fa-plus"></i></button>
+      <button class="btn-tripmate-black-collapse" type="button" id="collapseAllButton"><i class="fa-solid fa-minus"></i></button>
+      <%# loops begin %>
+      <% @activities_by_datetime.each_with_index do |datetime_activities, index| %>
+        <div class="act-card-body mt-2">
+          <div class="act-date-list d-flex align-content-center justify-content-left pt-2" id="heading<%= index %>">
+            <h5 class="mb-0">
+              <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>" aria-expanded="true" aria-controls="collapse<%= index %>">
+                <h2><%= datetime_activities.first.datetime.strftime("%B %e, %Y") %></h3>
+                <%# <span class="chevron"><i class="fa-solid fa-angles-left"></i></span> %>
+              </button>
+            </h5>
+          </div>
 
-                  <div class="col-md-1 align-content-center justify-content-center">
-                    <%= cl_image_tag activity.photo.key, alt: "AI-generated image of the location" if activity.photo.attached? %>
-                  </div>
-
-                  <div class="col-md-6 align-content-right padding-right ">
-                    <div class="card-body ">
-                      <p class="card-text text-body-secondary">
-                        <%=activity.datetime.strftime("%I:%M%p") %>
-                      </p>
-                      <p class="card-text">[<%=activity.category%>]</p>
-                      <h5 class="card-title"><%= activity.title %></h5>
-                      <p class="card-text"><small class="text-body-secondary"><%= activity.city %>, <%= activity.phone_number %></small></p>
+          <div id="collapse<%= index %>" class="collapse show" aria-labelledby="heading<%= index %>">
+            <div class="act-card-body pb-2">
+              <% datetime_activities.each do |activity| %>
+                <%= link_to activity_path(activity) do %>
+                  <div class="act-list-cards card border-bottom">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="act-card-time-bar col-md-2 d-flex justify-content-center">
+                          <p class="card-text">
+                            <%= activity.datetime.strftime("%H:%M") %>
+                          </p>
+                        </div>
+                        <div class="col-8">
+                          <p class="card-text">[<%= activity.category %>]</p>
+                          <h5 class="card-title"><%= activity.title %></h5>
+                          <p class="card-text"><small class="text-body-secondary"><%= activity.city %>, <%= activity.phone_number %></small></p>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center">
+                          <%= cl_image_tag activity.photo.key, alt: "AI-generated image of the Activity" if activity.photo.attached? %>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-                  </div>
-              </div>
-              <%end%>
-        <% end %>
-   <% end %>
-<%= render "activities/map" %>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const collapseAllButton = document.getElementById('collapseAllButton');
+  const expandAllButton = document.getElementById('expandAllButton');
+
+  collapseAllButton.addEventListener('click', function() {
+    const collapseElements = document.querySelectorAll('.collapse.show');
+    collapseElements.forEach(function(collapseEl) {
+      new bootstrap.Collapse(collapseEl);
+    });
+  });
+
+  expandAllButton.addEventListener('click', function() {
+    const collapseElements = document.querySelectorAll('.collapse');
+    collapseElements.forEach(function(collapseEl) {
+      new bootstrap.Collapse(collapseEl, { toggle: false }).show();
+    });
+  });
+
+  const collapseButtons = document.querySelectorAll('[data-bs-toggle="collapse"]');
+  collapseButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      const chevron = button.querySelector('.chevron i');
+      if (chevron.classList.contains('fa-angles-down')) {
+        chevron.classList.remove('fa-angles-down');
+        chevron.classList.add('fa-angles-left');
+      } else {
+        chevron.classList.remove('fa-angles-left');
+        chevron.classList.add('fa-angles-down');
+      }
+    });
+  });
+});
+</script>

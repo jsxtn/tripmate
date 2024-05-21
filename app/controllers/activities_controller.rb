@@ -7,7 +7,9 @@ class ActivitiesController < ApplicationController
 
     # @itineraries = Itinerary.find(user_id: current_user.id)
     @itinerary = Itinerary.find(params[:itinerary_id])
-    @activities_by_datetime = @itinerary.activities.group_by { |activity| activity.datetime.to_date}.values
+
+    
+    @activities_by_datetime = @itinerary.activities.group_by { |activity| activity.datetime.to_date }.values
 
     # geocoding
     @activities = @itinerary.activities
@@ -20,6 +22,7 @@ class ActivitiesController < ApplicationController
         marker_html: render_to_string(partial: "shared/marker", locals: {activity: activity})
       }
     end
+
   end
 
 
@@ -42,4 +45,13 @@ class ActivitiesController < ApplicationController
         marker_html: render_to_string(partial: "shared/marker", locals: {activity: @activity})
       }]
   end
+
+
+  # private
+
+  # def activity_params
+  #   params.require(:activity).permit(:country)
+  # end
+
+
 end
