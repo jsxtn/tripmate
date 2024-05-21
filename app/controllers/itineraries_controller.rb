@@ -7,6 +7,18 @@ class ItinerariesController < ApplicationController
     # @itineraries = Itinerary.find(user_id: current_user.id)
     @itineraries = Itinerary.where(user_id: current_user.id)
 
+     # geocoding
+     @activities = Activity.all
+     # The `geocoded` scope filters only flats with coordinates
+     @markers = @activities.map do |activity|
+       {
+         lat: activity.latitude,
+         lng: activity.longitude,
+         info_window_html: render_to_string(partial: "shared/info_window", locals: {activity: activity}),
+         marker_html: render_to_string(partial: "shared/marker", locals: {activity: activity})
+       }
+     end
+
   end
 
 
