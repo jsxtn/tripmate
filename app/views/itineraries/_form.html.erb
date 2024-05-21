@@ -13,38 +13,54 @@
 <span id="typed"></span> %>
 
 
-<%= simple_form_for(@itinerary) do |f| %>
-  <span data-controller='typed' data-typed-strings-value="<%= ["Where do you want to go?"] %>">
+<div data-controller="questions">
+  <%= simple_form_for(@itinerary, html: { data: { 'questions-target': 'form' } }) do |f| %>
+    <div>
+      <span data-questions-target="question" data-strings="<%= ["Where do you want to go?"] %>">
+      </span>
+      <%= f.input :answer1, label: false, input_html: { data: { action: 'keydown.enter->questions#next' } } %>
+    </div>
 
-  <p></p>
-  </span>
-  <%= f.input :answer1, label: false %>
-  <span data-controller='typed' data-typed-strings-value="<%= ["Please enter the dates you want to go."] %>">
-  <p></p>
-  </span>
-  <p></p>
-  <%= f.date_field :start_date %>
-  <%= f.date_field :end_date %>
-  <p></p>
-  <span data-controller="typed" data-typed-strings-value="<%= ["What cities do you want to visit?"] %>">
-    <%# <p>What cities do you want to visit?</p> %>
-  <p></p>
-  </span>
-  <%= f.input :answer3, label:false %>
-  <span data-controller="typed" data-typed-strings-value="<%= ["What type of activities do you like to do?  E.g. sightseeing, nightclubs, beaches etc"] %>">
-    <%# <p>What type of activities do you like to do?  E.g. sightseeing, nightclubs, beaches etc</p> %>
-  <p></p>
-  </span>
-  <%= f.input :answer4, label:false  %>
-  <span data-controller="typed" data-typed-strings-value="<%= ["What type of cuisine preferences do you have?  Are there any dietary preferences/requirements to consider?"] %>">
-    <%# <p>What type of cuisine preferences do you have?  Are there any dietary preferences/requirements to consider?</p> %>
-  <p></p>
-  </span>
-  <%= f.input :answer5,  label:false %>
-  <span data-controller="typed" data-typed-strings-value="<%= ["Do you or anyone in your travelling group have any accessibility requirements?"] %>">
-    <%# <p>Do you or anyone in your travelling group have any accessibility requirements?</p> %>
-  <p></p>
-  </span>
-  <%= f.input :answer6, label:false  %>
-  <%= f.submit class: "btn btn-tripmate-black my-2 lg-5"%>
-<% end %>
+    <div>
+      <span data-questions-target="question" data-strings="<%= ["Please enter start date you want to go."] %>">
+      </span>
+      <%= f.input :start_date, as: :string, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { data: { action: 'keydown.enter->questions#next' } } %>
+    </div>
+
+    <div>
+      <span data-questions-target="question" data-strings="<%= ["Please enter end date you want to go."] %>">
+      </span>
+      <%= f.input :end_date, as: :string, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { data: { action: 'keydown.enter->questions#next' } } %>
+    </div>
+
+    <div>
+      <span data-questions-target="question" data-strings="<%= ["What cities do you want to visit?"] %>">
+        <%# <p>What cities do you want to visit?</p> %>
+      </span>
+      <%= f.input :answer3, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { data: { action: 'keydown.enter->questions#next' } } %>
+    </div>
+
+    <div>
+      <span data-questions-target="question" data-strings="<%= ["What type of activities do you like to do?  E.g. sightseeing, nightclubs, beaches etc"] %>">
+        <%# <p>What type of activities do you like to do?  E.g. sightseeing, nightclubs, beaches etc</p> %>
+      </span>
+      <%= f.input :answer4, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { data: { action: 'keydown.enter->questions#next' } }  %>
+    </div>
+
+    <div>
+      <span data-questions-target="question" data-strings="<%= ["What type of cuisine preferences do you have?  Are there any dietary preferences/requirements to consider?"] %>">
+        <%# <p>What type of cuisine preferences do you have?  Are there any dietary preferences/requirements to consider?</p> %>
+      </span>
+      <%= f.input :answer5, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { data: { action: 'keydown.enter->questions#next' } } %>
+    </div>
+
+    <div>
+      <span data-questions-target="question" data-strings="<%= ["Do you or anyone in your travelling group have any accessibility requirements?"] %>">
+        <%# <p>Do you or anyone in your travelling group have any accessibility requirements?</p> %>
+      </span>
+      <%= f.input :answer6, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { data: { action: 'keydown.enter->questions#next' } }  %>
+    </div>
+
+    <%= f.submit "Create Itinerary", class: "btn btn-tripmate-black my-2 lg-5 d-none", data: { 'questions-target': 'button' } %>
+  <% end %>
+</div>
