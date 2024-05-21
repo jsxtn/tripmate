@@ -22,6 +22,18 @@
   <%#a class="btn btn-primary btn-lg px-4 gap-3 mt-2" <%= link_to "My Itineraries", itineraries_path%></a>
 <%# </div> %>
 
+<%# map button %>
+<div class="c2a-button-map">
+  <i class="d-flex align-items-center justify-content-center fa-solid fa-map-location-dot"></i>
+</div>
+
+<%# add activity button (not functional) %>
+<div class="c2a-button-add-act">
+  <%# <h1>+</h1> %>
+  <i class="d-flex align-items-center justify-content-center fa-solid fa-plus"></i>
+</div>
+
+
 <%# collapse group test start %>
 <div class="act-list-container container-fluid mt-5">
   <div class="act-list-container mt-5 mb-5 pb-5">
@@ -75,6 +87,7 @@
   </div>
 </div>
 <script>
+
 document.addEventListener('DOMContentLoaded', function() {
   const collapseAllButton = document.getElementById('collapseAllButton');
   const expandAllButton = document.getElementById('expandAllButton');
