@@ -51,7 +51,6 @@ puts "Creating activities for 'Spainish adventure in June!' ..."
     { title: "Explore Park Güell", description: "Visit Gaudí's fantastical park with colorful mosaics and sweeping city views.", address: "08024 Barcelona, Spain", category: "Sightseeing", country: "Spain", city: "Barcelona", phone_number: "+34 934 09 18 31", url: "https://www.parkguell.cat/en/", datetime: "2024-06-03 09:00:00", latitude: 41.4145, longitude: 2.1527 },
     { title: "Lunch at Cervecería Catalana", description: "Enjoy some of the best tapas in Barcelona at this bustling locale.", address: "Carrer de Mallorca, 236, 08008 Barcelona, Spain", category: "Restaurant", country: "Spain", city: "Barcelona", phone_number: "+34 932 16 03 68", url: "https://www.cerveceriacatalana.com/", datetime: "2024-06-03 13:00:00", latitude: 41.3925, longitude: 2.1604 },
     { title: "Evening at Opium Barcelona", description: "Dance the night away at one of Barcelona’s hottest beachfront nightclubs.", address: "Passeig Marítim, 34, 08003 Barcelona, Spain", category: "Nightlife", country: "Spain", city: "Barcelona", phone_number: "+34 932 25 91 00", url: "https://www.opiumbarcelona.com/", datetime: "2024-06-03 22:00:00", latitude: 41.3854, longitude: 2.1964 },
-
     # Day 2 - June 4, 2024
     { title: "Morning at Sagrada Familia", description: "Explore the iconic and still under-construction basilica designed by Antoni Gaudí.", address: "Carrer de Mallorca, 401, 08013 Barcelona, Spain", category: "Sightseeing", country: "Spain", city: "Barcelona", phone_number: "+34 932 08 04 14", url: "https://sagradafamilia.org/", datetime: "2024-06-04 09:00:00", latitude: 41.4036, longitude: 2.1744 },
     { title: "Visit Casa Batlló", description: "Tour this stunning building, another of Gaudí's masterpieces, known for its unique architecture.", address: "Passeig de Gràcia, 43, 08007 Barcelona, Spain", category: "Sightseeing", country: "Spain", city: "Barcelona", phone_number: "+34 932 16 03 06", url: "https://www.casabatllo.es/en/", datetime: "2024-06-04 12:00:00", latitude: 41.3917, longitude: 2.1649 },
@@ -104,7 +103,8 @@ puts "Creating activities for 'Spainish adventure in June!' ..."
   ]
 
   activities.each do |activity|
-    Activity.create(
+
+    Activity.create!(
       title: activity[:title],
       description: activity[:description],
       address: activity[:address],
@@ -118,6 +118,8 @@ puts "Creating activities for 'Spainish adventure in June!' ..."
       longitude: activity[:longitude],
       itinerary_id: itinerary1.id
     )
+
+
   end
 
 
@@ -215,7 +217,7 @@ puts "Creating activities for 'Thailand beaches here we come!' ..."
   ]
 
   activities.each do |activity|
-    Activity.create(
+    Activity.create!(
       title: activity[:title],
       description: activity[:description],
       address: activity[:address],
@@ -229,6 +231,7 @@ puts "Creating activities for 'Thailand beaches here we come!' ..."
       longitude: activity[:longitude],
       itinerary_id: itinerary3.id
     )
+
   end
 
 puts "Created 45 activities"

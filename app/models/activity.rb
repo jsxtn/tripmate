@@ -5,15 +5,15 @@ class Activity < ApplicationRecord
   validates :datetime, :longitude, :latitude, :title, :category, presence: true
   has_one_attached :photo
 
-  after_save if: -> { saved_change_to_title? } do
-    set_photo
-  end
+  # after_save if: -> { saved_change_to_title? } do
+  #   set_photo
+  # end
 
   # geocoding
   geocoded_by :address
   after_validation :geocode, if:
    :will_save_change_to_address?
-  
+
   private
 
   def set_photo
