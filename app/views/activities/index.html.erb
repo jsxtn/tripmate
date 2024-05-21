@@ -106,18 +106,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  const collapseButtons = document.querySelectorAll('[data-bs-toggle="collapse"]');
-  collapseButtons.forEach(function(button) {
-    button.addEventListener('click', function() {
-      const chevron = button.querySelector('.chevron i');
-      if (chevron.classList.contains('fa-angles-down')) {
-        chevron.classList.remove('fa-angles-down');
-        chevron.classList.add('fa-angles-left');
-      } else {
-        chevron.classList.remove('fa-angles-left');
-        chevron.classList.add('fa-angles-down');
-      }
-    });
-  });
+  // const collapseButtons = document.querySelectorAll('[data-bs-toggle="collapse"]');
+  // collapseButtons.forEach(function(button) {
+  //   button.addEventListener('click', function() {
+  //     const chevron = button.querySelector('.chevron i');
+  //     if (chevron.classList.contains('fa-angles-down')) {
+  //       chevron.classList.remove('fa-angles-down');
+  //       chevron.classList.add('fa-angles-left');
+  //     } else {
+  //       chevron.classList.remove('fa-angles-left');
+  //       chevron.classList.add('fa-angles-down');
+  //     }
+  //   });
+  // });
 });
 </script>
