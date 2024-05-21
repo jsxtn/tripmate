@@ -1,5 +1,6 @@
 <%= render "shared/navbar" %>
 
+
 <div>
   <img class="banner" src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=2400">
   <div class="act-index container title-card card shadow">
@@ -58,7 +59,7 @@
                           <p class="card-text"><small class="text-body-secondary"><%= activity.city %>, <%= activity.phone_number %></small></p>
                         </div>
                         <div class="col-4 d-flex justify-content-center">
-                          <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Grey_Square.svg">
+                          <%= cl_image_tag activity.photo.key, alt: "AI-generated image of the Activity" if activity.photo.attached? %>
                         </div>
                       </div>
                     </div>
@@ -71,6 +72,7 @@
       <% end %>
     </div>
   </div>
+
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
