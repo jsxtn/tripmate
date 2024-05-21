@@ -1,34 +1,36 @@
 
 <%= render "shared/navbar" %>
 <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto m-5">
-        <h1 class="fw-light">Hi <%=@username%></h1>
-        <p class="lead text-body-secondary">Welcome to your profile page.  Here you will find all your planned trips with all the customised itineraries.  And keep an eye out for the memories folder too!</p>
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto m-5">
+      <h1 class="fw-light">Hi <%=@username%></h1>
+      <p class="lead text-body-secondary">Welcome to your profile page.  Here you will find all your planned trips with all the customised itineraries.  And keep an eye out for the memories folder too!</p>
         <%# <p>
           <a href="#" class="btn btn-primary my-2">Main call to action</a>
           <a href="#" class="btn btn-secondary my-2">Secondary action</a>
         </p> %>
-      </div>
     </div>
+  </div>
+  <section>
+    <ul class="list-unstyled">
+      <% @itineraries.each do |itinerary| %>
+        <li> <%= link_to itinerary.name, itinerary_activities_path(itinerary)%> </li>
 
-        <section>
-          <ul class="list-unstyled">
-            <% @itineraries.each do |itinerary| %>
-            <li> <%= link_to itinerary.name, itinerary_activities_path(itinerary)%> </li>
+        <%= cl_image_tag itinerary.photo.key, alt: "AI-generated image of the location" if itinerary.photo.attached? %>
+      <% end %>
+    </ul>
+  </section>
 
-            <%= cl_image_tag itinerary.photo.key, alt: "AI-generated image of the location" if itinerary.photo.attached? %>
-          <% end %>
-          </ul>
-        </section>
+  <section>
+    <button type="button" class="btn btn-tripmate-black btn-lg px-4 gap-3 mt-2">
+      <%= link_to "New itinerary", new_itinerary_path%>
+    </button>
+  </section>
+</section>
 
-        <section>
-          <button type="button" class="btn btn-tripmate-black btn-lg px-4 gap-3 mt-2">
-            <%= link_to "New itinerary", new_itinerary_path%>
-          </button>
-        </section>
+<div>
+  <button>
+</div>
 
 <%= render "activities/map" %>
-
-
-</section>
+<%= render "memory_reel" %>
