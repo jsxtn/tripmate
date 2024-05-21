@@ -52,7 +52,7 @@ class ItinerariesController < ApplicationController
   private
 
   def itinerary_params
-    params.require(:itinerary).permit( :answer1, :start_date, :end_date, :answer3, :answer4, :answer5, :answer6)
+    params.require(:itinerary).permit(:answer1, :start_date, :end_date, :answer3, :answer4, :answer5, :answer6)
   end
 
 end

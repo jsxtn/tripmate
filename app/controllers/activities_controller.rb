@@ -7,7 +7,7 @@ class ActivitiesController < ApplicationController
 
     # @itineraries = Itinerary.find(user_id: current_user.id)
     @itinerary = Itinerary.find(params[:itinerary_id])
-    @activities_by_datetime = @itinerary.activities.group_by {|activity| activity.datetime.to_date}.values
+    @activities_by_datetime = @itinerary.activities.group_by { |activity| activity.datetime.to_date }.values
 
   end
 
@@ -20,5 +20,11 @@ class ActivitiesController < ApplicationController
     @itinerary = Itinerary.find(@activity.itinerary_id)
 
   end
+
+  # private
+
+  # def activity_params
+  #   params.require(:activity).permit(:country)
+  # end
 
 end
