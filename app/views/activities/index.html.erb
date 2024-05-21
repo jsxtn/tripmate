@@ -3,41 +3,27 @@
 <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto mt-5">
-  <h1 class="fw-light"><%=@itinerary.name%></h1>
-<p class="lead text-body-secondary">Hey <%=@username%>, here is your personalised itinerary! Have a great time on your travels.</p>
-  <%# <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-        </p> %>
+          <h1 class="fw-light"><%=@itinerary.name%></h1>
+          <%= cl_image_tag @itinerary.photo.key, alt: "AI-generated image of the location" if @itinerary.photo.attached? %>
+          <p class="lead text-body-secondary">Hey <%=@username%>, here is your personalised itinerary! Have a great time on your travels.</p>
       </div>
     </div>
-
-
-    <%#div class="py-5 text-center container">
-      <%#a class="btn btn-primary btn-lg px-4 gap-3 mt-2" <%= link_to "My Itineraries", itineraries_path%></a>
-    <%# </div> %>
-
-
-  </section>
+</section>
 
 <div class = "ms-4 me-4 mb-5 pb-5">
   <% @activities_by_datetime.each do |datetime_activities| %>
-
     <h3> <%= datetime_activities.first.datetime.strftime("%d %B %Y") %> </h3>
-
         <% datetime_activities.each do |activity| %>
-
             <%= link_to activity_path(activity) do %>
-
-              <div class="card mb-3 justify-content-center ms-5 shadow">
+              <div class="card mb-3 justify-content-center ms-5 shadow container ">
                 <div class="row g-0">
+
                   <div class="col-md-1 align-content-center justify-content-center">
-                      <%# <p class="card-text text-body-secondary">
-                        <%=activity.datetime.strftime("%I:%M%p") %>
-                      <%#/p> %>
+                    <%= cl_image_tag activity.photo.key, alt: "AI-generated image of the location" if activity.photo.attached? %>
                   </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
+
+                  <div class="col-md-6 align-content-right padding-right ">
+                    <div class="card-body ">
                       <p class="card-text text-body-secondary">
                         <%=activity.datetime.strftime("%I:%M%p") %>
                       </p>
@@ -46,6 +32,7 @@
                       <p class="card-text"><small class="text-body-secondary"><%= activity.city %>, <%= activity.phone_number %></small></p>
                     </div>
                   </div>
+
                   </div>
               </div>
               <%end%>
