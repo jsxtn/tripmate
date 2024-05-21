@@ -1,4 +1,8 @@
 <nav class="navbar navbar-top fixed-top">
+  <div class="nav-logo-cont">
+    <%# <img id="nav-logo" src="https://res.cloudinary.com/dopxbkgda/image/upload/v1715705819/tripmate_logo_trans_crop_w44ekt.png"> %>
+    <img id="nav-logo" src="https://res.cloudinary.com/dopxbkgda/image/upload/v1715901167/tripmate_logo_123_crop_shadow_ifg0av.png">
+  </div>
     <ul class= "nav nav-pills d-flex justify-content-around w-100">
       <li class="nav-item me-auto">
         <%= link_to :back do %>
@@ -9,7 +13,7 @@
 </nav>
 
 
-<nav class="navbar fixed-bottom justify-content-center ">
+<nav class="navbar fixed-bottom align-items-start justify-content-center">
   <div class="container-fluid">
 
     <ul class="nav nav-pills d-flex align-items-center justify-content-between w-100 me-3">
@@ -26,13 +30,13 @@
         </a>
       </li>
 
-     <div class= "plus">
+     <%# <div class= "plus">
        <li>
         <a class="btn btn-tripmate" href="/itineraries/new">
           <i class="fas fa-plus"></i>
         </a>
        </li>
-     </div>
+     </div> %>
 
 
       <li class="nav-item">
@@ -44,7 +48,7 @@
 
 
 
-      <li class="nav-item dropup">
+      <li class="navbar-drop-menu nav-item dropup">
           <%= image_tag "icons/user_icon.png", class: 'dropdown-toggle nav-icon ', data: { bs_toggle: 'dropdown' }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/itineraries">Dashboard</a>

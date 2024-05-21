@@ -40,7 +40,7 @@
 }
 
 .btn-tripmate-black-share:active {
-	transform: scale(1.5);
+	transform: scale(0.93);
 	transition: .1s;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .btn-login:active {
-	transform: scale(1.02);
+	transform: scale(0.93);
 	transition: .1s;
 }
 
@@ -95,8 +95,8 @@
 }
 
 .btn-register:active {
-	transform: scale(1.02);
-	transition: .1s;
+  transform: scale(0.93);
+  transition: .1s;
 }
 
 .btn-tripmate-black-collapse{
@@ -113,7 +113,58 @@
   text-decoration: none;
 }
 
-.btn-tripmate-black-collapse {
-	transform: scale(1.02);
+.btn-tripmate-black-collapse:active{
+	transform: scale(0.93);
+	transition: .1s;
+}
+
+.c2a-button-map {
+  background: linear-gradient(to right, #20e37a, #20cae3);
+  color: #FEFEFE;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-right: 20px;
+  margin-bottom: 110px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #FEFEFE;
+  border-width: 2px;
+  padding: 20px;
+  z-index: 2000;
+}
+
+.c2a-button-map:active {
+	transform: scale(0.93);
+	transition: .1s;
+}
+
+.c2a-button-add-act {
+  background: linear-gradient(to right, #ff4400, #E45521);
+  color: #FEFEFE;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-right: 20px;
+  margin-bottom: 178px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #FEFEFE;
+  border-width: 2px;
+  padding: 20px;
+  z-index: 2000;
+}
+
+.c2a-button-add-act i {
+  margin-top: 2px;
+  //margin-left: 2px;
+}
+
+.c2a-button-add-act:active {
+	transform: scale(0.93);
 	transition: .1s;
 }
