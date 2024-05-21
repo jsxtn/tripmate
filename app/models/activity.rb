@@ -9,7 +9,11 @@ class Activity < ApplicationRecord
     set_photo
   end
 
-
+  # geocoding
+  geocoded_by :address
+  after_validation :geocode, if:
+   :will_save_change_to_address?
+  
   private
 
   def set_photo
@@ -27,4 +31,5 @@ class Activity < ApplicationRecord
     photo.attach(io: file, filename: "#{image_id}#{id}_#{title}.png", content_type: "image/png")
     return photo
   end
+
 end
