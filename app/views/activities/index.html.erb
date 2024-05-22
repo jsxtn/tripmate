@@ -1,5 +1,12 @@
-<%= render "shared/navbar" %>
-<%= render "map" %>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<div id="navbar-act">
+  <%= render "shared/navbar" %>
+</div>
+
+<div id="map-act">
+  <%= render "map" %>
+</div>
 
 <div>
   <img class="banner" src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=2400">
@@ -57,7 +64,7 @@
             <div class="act-card-body pb-2">
               <% datetime_activities.each do |activity| %>
                 <%= link_to activity_path(activity) do %>
-                  <div class="act-list-cards card border-bottom">
+                  <div class="act-list-cards card rounded border-bottom">
                     <div class="card-body">
                       <div class="row">
                         <div class="act-card-time-bar col-md-2 d-flex justify-content-center">
@@ -87,9 +94,24 @@
 
   </div>
 </div>
-<script>
 
+<script>
 document.addEventListener('DOMContentLoaded', function() {
+  const mapButton = document.querySelector('.c2a-button-map');
+  let elementsHidden = false;
+
+  mapButton.addEventListener('click', function() {
+    if (elementsHidden) {
+      // Fade in all elements
+      $('body').children().not('.c2a-button-map, #navbar-act, #map-act').fadeIn();
+    } else {
+      // Fade out all elements except the specified ones
+      $('body').children().not('.c2a-button-map, #navbar-act, #map-act').fadeOut();
+    }
+    elementsHidden = !elementsHidden;
+  });
+
+  // Existing functionality for collapse/expand buttons
   const collapseAllButton = document.getElementById('collapseAllButton');
   const expandAllButton = document.getElementById('expandAllButton');
 
@@ -106,19 +128,5 @@ document.addEventListener('DOMContentLoaded', function() {
       new bootstrap.Collapse(collapseEl, { toggle: false }).show();
     });
   });
-
-  // const collapseButtons = document.querySelectorAll('[data-bs-toggle="collapse"]');
-  // collapseButtons.forEach(function(button) {
-  //   button.addEventListener('click', function() {
-  //     const chevron = button.querySelector('.chevron i');
-  //     if (chevron.classList.contains('fa-angles-down')) {
-  //       chevron.classList.remove('fa-angles-down');
-  //       chevron.classList.add('fa-angles-left');
-  //     } else {
-  //       chevron.classList.remove('fa-angles-left');
-  //       chevron.classList.add('fa-angles-down');
-  //     }
-  //   });
-  // });
 });
 </script>
