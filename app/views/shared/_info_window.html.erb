@@ -4,4 +4,5 @@
 <p><%= activity.category %></p>
 <p><%= activity.address %></p>
 <p><%= activity.phone_number %></p>
-<p><%= activity.url %></p>
+<p><%= link_to activity.url, activity.url, target: '_blank' %></p>
+<%= link_to "directions", "https://maps.google.com/?q=#{activity.latitude},#{activity.longitude}" %>
