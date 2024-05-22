@@ -1,8 +1,8 @@
-<h1>View your activities</h1>
+<%# <h1>View your activities</h1> %>
 
 <div id='map'
   data-controller="map"
-  style="width: 100%; height: 600px;"
+  style="width: 100%; height: 100%; position: fixed; z-index: -2;"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 
