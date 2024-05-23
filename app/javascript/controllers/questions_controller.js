@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import Typed from "typed.js";
 
 export default class extends Controller {
-  static targets = ['question', 'form', 'button']
+  static targets = ['question', 'form', 'button', 'spinner']
 
   connect() {
     this.question = 0
@@ -23,6 +23,11 @@ export default class extends Controller {
       this.#typeNextQuestion(this.question)
     }
 
+  }
+
+  startSpinning() {
+    this.spinnerTarget.classList.remove('d-none')
+    this.formTarget.style.filter = 'blur(5px)'
   }
 
   #typeNextQuestion(n) {

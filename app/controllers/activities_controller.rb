@@ -8,8 +8,11 @@ class ActivitiesController < ApplicationController
     # @itineraries = Itinerary.find(user_id: current_user.id)
     @itinerary = Itinerary.find(params[:itinerary_id])
 
-    
-    @activities_by_datetime = @itinerary.activities.group_by { |activity| activity.datetime.to_date }.values
+
+    @activities_by_datetime = @itinerary.activities.order(datetime: :asc).group_by { |activity| activity.datetime.to_date }.values
+
+
+    # @activities_by_datetime = @itinerary.activities.order(datetime: :asc)
 
     # geocoding
     @activities = @itinerary.activities
