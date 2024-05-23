@@ -1,17 +1,15 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <%= render "shared/navbar" %>
 
-<div class="py-5 text-center container">
+<div class="itinerary-map">
+  <%= render "activities/map" %>
+</div>
+
+<div class="card py-5 d-flex align-items-center justify-content-center text-center">
   <div class="row py-lg-5">
     <div class="col-lg-6 col-md-8 mx-auto m-5">
       <h1 class="fw-light"><%=@username%>'s Trips</h1>
-      <%# <p class="lead text-body-secondary">Welcome to your profile page. Here you will find all your planned trips with all the customised itineraries.  And keep an eye out for the memories folder too!</p> %>
-      <%# perhaps add this as a dismissable tooltip? %>
-
-        <%# <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-        </p> %>
     </div>
   </div>
   <div>
@@ -23,121 +21,45 @@
         </div>
       <% end %>
     </ul>
-  </section>
-<%#
-  <section>
-    <button type="button" class="btn btn-tripmate-black btn-lg px-4 gap-3 mt-2">
-      <%= link_to "New itinerary", new_itinerary_path%>
-    <%# </button>
-  </section>
-</section>  %>
-
-  <%# map button %>
-  <div class="c2a-button-map-itin">
-    <i class="d-flex align-items-center justify-content-center fa-solid fa-map-location-dot"></i>
   </div>
-
-  <%# add itinerary button %>
-  <div class="c2a-button-add-itin">
-    <%# <h1>+</h1> %>
-    <i class="d-flex align-items-center justify-content-center fa-solid fa-plus"></i>
+  <div class="memory card mt-5 py-5" style="
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top:0;
+      left:0;
+      display: none;
+      background-color: #EFEFEF;">
+        <%= render "memory_reel" %>
   </div>
-
-    <%# add memory button %>
-  <div class="c2a-button-view-mem">
-    <%# <h1>+</h1> %>
-    <i class="d-flex align-items-center justify-content-center fa-solid fa-images"></i>
-  </div>
-
-<div class= "itinerary-map">
-  <%= render "activities/map" %>
 </div>
 
-<div class= "memory">
-  <%= render "memory_reel" %>
+<div class="c2a-button-map-itin">
+  <i class="d-flex align-items-center justify-content-center fa-solid fa-map-location-dot"></i>
 </div>
 
-<%#tried with css%>
-<%# <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const memButton = document.querySelector('.c2a-button-view-mem');
-    const memoryContainer = document.querySelector('.memory-container');
+<div class="c2a-button-add-itin">
+  <i class="d-flex align-items-center justify-content-center fa-solid fa-plus"></i>
+</div>
 
-    memButton.addEventListener('click', function() {
-      memoryContainer.classList.toggle('fade-in');
-      // memoryContainer.classList.toggle('fade-out');
-    });
-</script> %>
+<div class="c2a-button-view-mem">
+  <i class="d-flex align-items-center justify-content-center fa-solid fa-images"></i>
+</div>
 
-  <script class="no-show-itin">
-    document.addEventListener('DOMContentLoaded', function() {
-    const mapButton = document.querySelector('.c2a-button-map-itin');
-    const memButton = document.querySelector('.memory');
 
-    let elementsHidden = false;
+<script class="no-show">
+  $(document).ready(function() {
+    const memButton = $('.c2a-button-view-mem');
+    const memoryContainer = $('.memory');
+    const mapButton = $('.c2a-button-map-itin');
+    const itineraryMap = $('.itinerary-map');
 
-    mapButton.addEventListener('click', function() {
-      if (elementsHidden) {
-        // Fade in all elements
-        $('body').children().not('.c2a-button-map-itin, .no-show-itin, #navbar-act, #map-act').fadeIn();
-      } else {
-        // Fade out all elements except the specified ones
-        console.log("hello")
-        $('body').children().not('.c2a-button-map-itin, .no-show-itin, #navbar-act, #map-act').fadeOut();
-      }
-      elementsHidden = !elementsHidden;
+    memButton.on('click', function() {
+      memoryContainer.fadeToggle();
     });
 
-//original
-    memButton.addEventListener('click', function() {
-    if (!elementsHidden) {
-      // Fade out all elements except the specified ones
-      console.log("hello")
-      $('body').children()('.memory').fadeOut();
-    } else {
-      // Fade in all elements
-      $('body').children()('.memory').fadeIn();
-    }
-    !elementsHidden = elementsHidden;
-  });
-
-
-//   tried changes referring to bootstrap carousel
-//   memButton.addEventListener('click', function() {
-//   const memory = document.querySelector('.memory');
-//   const memoryCarousel = document.querySelector('.memory .carousel');
-//   if (elementsHidden) {
-//     // Fade in the memory carousel
-//     memory.style.display = 'block';
-//     $(memory).fadeIn();
-
-//     if (memoryCarousel) {
-//       memoryCarousel.classList.add('carousel', 'slide');
-//       memoryCarousel.setAttribute('data-ride', 'carousel');
-//       $(memoryCarousel).carousel('cycle');
-//     }
-//   } else {
-//     // Fade out the memory carousel
-//     $(memory).fadeOut();
-//   }
-// });
-
-  // Existing functionality for collapse/expand buttons
-  const collapseAllButton = document.getElementById('collapseAllButton');
-  const expandAllButton = document.getElementById('expandAllButton');
-
-  collapseAllButton.addEventListener('click', function() {
-    const collapseElements = document.querySelectorAll('.collapse.show');
-    collapseElements.forEach(function(collapseEl) {
-      new bootstrap.Collapse(collapseEl);
+    mapButton.on('click', function() {
+      $('body').children().not('.memory, .no-show, .itinerary-map, .c2a-button-map-itin, .navbar, .navbar *').fadeToggle();
     });
   });
-
-  expandAllButton.addEventListener('click', function() {
-    const collapseElements = document.querySelectorAll('.collapse');
-    collapseElements.forEach(function(collapseEl) {
-      new bootstrap.Collapse(collapseEl, { toggle: false }).show();
-    });
-  });
-});
 </script>
