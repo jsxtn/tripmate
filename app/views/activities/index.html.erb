@@ -8,22 +8,20 @@
     <%= render "map" %>
   </div>
 
+
+
   <div>
     <img class="banner" src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=2400">
     <div class="act-index container title-card card shadow">
       <div class="container">
-        <h1><%=@username%>'s trip to Thailand</h1>
-        <%# <h1><%=@itinerary.name%>
-        <%# </h1> %>
-          <%# <p>Hey <%=@username%>
-          <%# , here is your personalised itinerary!</p> %>
-          <%# refactor this just to say [username]'s trip to [country] %>
+       <h1><%=@username%>'s trip to <%=@itinerary.answer1%></h1>
       </div>
       <div class="title-card-bottom-info-bar flex-row align-items-baseline justify-content-between mt-5">
         <%= @itinerary.start_date.strftime("%b %e") %> -
         <%= @itinerary.end_date.strftime("%b %e, %Y") %>
         <a href="#" class="btn-tripmate-black-share"><i class="fa-solid fa-arrow-up-from-bracket"></i></a>
       </div>
+
     </div>
   </div>
   <%#div class="py-5 text-center container">
@@ -60,6 +58,7 @@
               </h5>
             </div>
 
+
             <div id="collapse<%= index %>" class="collapse show" aria-labelledby="heading<%= index %>">
               <div class="act-card-body pb-2">
                 <% datetime_activities.each do |activity| %>
@@ -78,9 +77,10 @@
                                     <p class="card-text"><small class="text-body-secondary"><%= activity.city %>, <%= activity.phone_number %></small></p>
                                   </div>
                                 <div class="col-4 d-flex justify-content-center">
-                              <%= cl_image_tag activity.photo.key, alt: "AI-generated image of the Activity" if activity.photo.attached? %>
+                              <img src="https://source.unsplash.com/256x256/?<%= activity.category %>: <%= activity.title %> in <%= activity.country %>">
                             </div>
                           </div>
+                        
                         </div>
                       </div>
                     <% end %>
