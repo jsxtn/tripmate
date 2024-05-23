@@ -1,9 +1,9 @@
 <%= render "shared/navbar" %>
 
-<section class="py-5 text-center container">
+<div class="py-5 text-center container">
   <div class="row py-lg-5">
     <div class="col-lg-6 col-md-8 mx-auto m-5">
-      <h1 class="fw-light">Hi <%=@username%></h1>
+      <h1 class="fw-light"><%=@username%>'s Trips</h1>
       <%# <p class="lead text-body-secondary">Welcome to your profile page. Here you will find all your planned trips with all the customised itineraries.  And keep an eye out for the memories folder too!</p> %>
       <%# perhaps add this as a dismissable tooltip? %>
 
@@ -13,22 +13,23 @@
         </p> %>
     </div>
   </div>
-  <section>
+  <div>
     <ul class="list-unstyled">
       <% @itineraries.each do |itinerary| %>
         <li> <%= link_to itinerary.name, itinerary_activities_path(itinerary)%> </li>
-
-        <%= cl_image_tag itinerary.photo.key, alt: "AI-generated image of the location" if itinerary.photo.attached? %>
+        <div class="itin-index-imgs">
+          <%= cl_image_tag itinerary.photo.key, alt: "AI-generated image of the location" if itinerary.photo.attached? %>
+        </div>
       <% end %>
     </ul>
-  </section>
+  </div>
 
-  <section>
+  <div>
     <button type="button" class="btn btn-tripmate-black btn-lg px-4 gap-3 mt-2">
       <%= link_to "New itinerary", new_itinerary_path%>
     </button>
-  </section>
-</section>
+  </div>
+</div>
 
 <div>
   <button>

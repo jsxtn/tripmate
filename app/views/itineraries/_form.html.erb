@@ -16,7 +16,7 @@
 <div data-controller="questions">
   <%= simple_form_for(@itinerary, html: { data: { 'questions-target': 'form' } }) do |f| %>
     <div>
-      <span data-questions-target="question" data-strings="<%= ["Where do you want to go?"] %>">
+      <span data-questions-target="question" data-strings="<%= ["Which countries would you like to visit?"] %>">
       </span>
       <%= f.input :answer1, label: false, input_html: { data: { action: 'keydown.enter->questions#next' } } %>
     </div>
