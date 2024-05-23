@@ -1,0 +1,32 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.memory-container {
+  display: none;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.memory-container.fade-in {
+  display: block;
+  animation-name: fadeIn;
+}
+
+.memory-container.fade-out {
+  animation-name: fadeOut;
+}

@@ -168,3 +168,72 @@
 	transform: scale(0.93);
 	transition: .1s;
 }
+
+.c2a-button-view-mem{
+  background: linear-gradient(to right, #1c1917, #1c1917);
+  color: #FEFEFE;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-right: 20px;
+  margin-bottom: 122px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #FEFEFE;
+  border-width: 2px;
+  padding: 20px;
+  z-index: 2000;
+}
+
+.c2a-button-view-mem:active{
+	transform: scale(0.93);
+	transition: .1s;
+}
+
+.c2a-button-map-itin{
+  background: linear-gradient(to right, #1c1917, #1c1917);
+  color: #FEFEFE;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-right: 20px;
+  margin-bottom: 190px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #FEFEFE;
+  border-width: 2px;
+  padding: 20px;
+  z-index: 2000;
+}
+
+.c2a-button-map-itin:active{
+	transform: scale(0.93);
+	transition: .1s;
+}
+
+.c2a-button-add-itin{
+  background: linear-gradient(to right, #20e37a, #20cae3);
+  color: #FEFEFE;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-right: 20px;
+  margin-bottom: 258px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #FEFEFE;
+  border-width: 2px;
+  padding: 20px;
+  z-index: 2000;
+}
+
+.c2a-button-add-itin:active{
+	transform: scale(0.93);
+	transition: .1s;
+}

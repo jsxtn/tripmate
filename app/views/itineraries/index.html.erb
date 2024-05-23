@@ -1,3 +1,4 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <%= render "shared/navbar" %>
 
 <section class="py-5 text-center container">
@@ -22,21 +23,120 @@
       <% end %>
     </ul>
   </section>
-
+<%#
   <section>
     <button type="button" class="btn btn-tripmate-black btn-lg px-4 gap-3 mt-2">
       <%= link_to "New itinerary", new_itinerary_path%>
-    </button>
+    <%# </button>
   </section>
-</section>
+</section>  %>
 
-<div>
-  <button>
-</div>
+  <%# map button %>
+  <div class="c2a-button-map-itin">
+    <i class="d-flex align-items-center justify-content-center fa-solid fa-map-location-dot"></i>
+  </div>
 
-<div>
+  <%# add itinerary button %>
+  <div class="c2a-button-add-itin">
+    <%# <h1>+</h1> %>
+    <i class="d-flex align-items-center justify-content-center fa-solid fa-plus"></i>
+  </div>
+
+    <%# add memory button %>
+  <div class="c2a-button-view-mem">
+    <%# <h1>+</h1> %>
+    <i class="d-flex align-items-center justify-content-center fa-solid fa-images"></i>
+  </div>
+
+<div class= "itinerary-map">
   <%= render "activities/map" %>
 </div>
-<div>
+
+<div class= "memory">
   <%= render "memory_reel" %>
 </div>
+
+<%#tried with css%>
+<%# <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const memButton = document.querySelector('.c2a-button-view-mem');
+    const memoryContainer = document.querySelector('.memory-container');
+
+    memButton.addEventListener('click', function() {
+      memoryContainer.classList.toggle('fade-in');
+      // memoryContainer.classList.toggle('fade-out');
+    });
+</script> %>
+
+  <script class="no-show-itin">
+    document.addEventListener('DOMContentLoaded', function() {
+    const mapButton = document.querySelector('.c2a-button-map-itin');
+    const memButton = document.querySelector('.memory');
+
+    let elementsHidden = false;
+
+    mapButton.addEventListener('click', function() {
+      if (elementsHidden) {
+        // Fade in all elements
+        $('body').children().not('.c2a-button-map-itin, .no-show-itin, #navbar-act, #map-act').fadeIn();
+      } else {
+        // Fade out all elements except the specified ones
+        console.log("hello")
+        $('body').children().not('.c2a-button-map-itin, .no-show-itin, #navbar-act, #map-act').fadeOut();
+      }
+      elementsHidden = !elementsHidden;
+    });
+
+//original
+    memButton.addEventListener('click', function() {
+    if (!elementsHidden) {
+      // Fade out all elements except the specified ones
+      console.log("hello")
+      $('body').children()('.memory').fadeOut();
+    } else {
+      // Fade in all elements
+      $('body').children()('.memory').fadeIn();
+    }
+    !elementsHidden = elementsHidden;
+  });
+
+
+//   tried changes referring to bootstrap carousel
+//   memButton.addEventListener('click', function() {
+//   const memory = document.querySelector('.memory');
+//   const memoryCarousel = document.querySelector('.memory .carousel');
+//   if (elementsHidden) {
+//     // Fade in the memory carousel
+//     memory.style.display = 'block';
+//     $(memory).fadeIn();
+
+//     if (memoryCarousel) {
+//       memoryCarousel.classList.add('carousel', 'slide');
+//       memoryCarousel.setAttribute('data-ride', 'carousel');
+//       $(memoryCarousel).carousel('cycle');
+//     }
+//   } else {
+//     // Fade out the memory carousel
+//     $(memory).fadeOut();
+//   }
+// });
+
+  // Existing functionality for collapse/expand buttons
+  const collapseAllButton = document.getElementById('collapseAllButton');
+  const expandAllButton = document.getElementById('expandAllButton');
+
+  collapseAllButton.addEventListener('click', function() {
+    const collapseElements = document.querySelectorAll('.collapse.show');
+    collapseElements.forEach(function(collapseEl) {
+      new bootstrap.Collapse(collapseEl);
+    });
+  });
+
+  expandAllButton.addEventListener('click', function() {
+    const collapseElements = document.querySelectorAll('.collapse');
+    collapseElements.forEach(function(collapseEl) {
+      new bootstrap.Collapse(collapseEl, { toggle: false }).show();
+    });
+  });
+});
+</script>
