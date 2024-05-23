@@ -1,18 +1,21 @@
 <%= render "shared/navbar" %>
 
-<div class="py-1 justify-content-center mb-5 mt-5 pt-5">
-  <div class="row py-lg-5 text-center">
-    <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Hey <%=@username%>! </h1>
-          <%# <span data-controller="typed" data-typed-strings-value="<%= ["Ok so lets find out more details to build that dream holiday of yours.", "Lets start by answering a few questions for us:"] "> </span> %>
 
-            <h1 class="fw-light"> Ok cool! Lets find out more details so we can build that dream holiday of yours. </h1>
-            <p class="lead text-body-secondary">Lets start by answering a few questions</p>
+
+  <div>
+    <img class="banner" src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=2400">
+    <div class="act-index container title-card card shadow">
+      <div class="container ">
+       <h1>Hey <%=@username%>!</h1>
+       <h1> Lets build your dream holiday! </h1>
+      </div>
+
 
     </div>
   </div>
-  <div class="m-4 justify-content-center d-flex align-content-end flex-grow">
-    <div class="card-body card-body-auto-height">
+
+  <div class=" m-4 justify-content-center d-flex align-content-end flex-grow">
+    <div class="card-body card-body-auto-height ">
       <%= render "form", itinerary: @itinerary%>
     </div>
   </div>
