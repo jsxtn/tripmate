@@ -100,16 +100,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   mapButton.addEventListener('click', function() {
     if (elementsHidden) {
-      // Fade in all elements
+      // fade in all elements
       $('body').children().not('.c2a-button-map, .no-show, #navbar-act, #map-act').fadeIn();
     } else {
-      // Fade out all elements except the specified ones
+      // fade out all elements except the specified ones
       $('body').children().not('.c2a-button-map, .no-show, #navbar-act, #map-act').fadeOut();
     }
     elementsHidden = !elementsHidden;
   });
 
-  // Existing functionality for collapse/expand buttons
+  // collapse group and card script
   const collapseAllButton = document.getElementById('collapseAllButton');
   const expandAllButton = document.getElementById('expandAllButton');
 

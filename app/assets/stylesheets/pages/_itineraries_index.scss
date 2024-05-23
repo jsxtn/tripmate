@@ -1,6 +1,6 @@
 .itin-index-imgs {
-  width: 200px;
-  height: 200px;
+  width: 128px;
+  height: 128px;
   border-radius: 50%;
 }
 
@@ -29,6 +29,32 @@
 }
 .trip-description {
   color: #666;
+}
+
+.itin-index-card-container {
+  border-radius: 10px;
+  border-style: none;
+  padding-bottom: 100%;
+}
+
+.itin-index-card {
+  border-radius: 10px;
+  border-style: none;
+  background-color: #FEFEFE;
+}
+
+.itin-index-card-text a {
+  border-radius: 10px;
+  color: black;
+}
+
+.itinerary-map {
+  z-index: -2;
+}
+
+.itin-body-container {
+  height: 100%;
+  z-index: 1000;
 }
 
 // .memory-show-card {
