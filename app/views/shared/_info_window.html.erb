@@ -1,8 +1,10 @@
-<h2><%= activity.title %></h2>
-<p><%= activity.datetime %></p>
-<p><%= activity.description %></p>
-<p><%= activity.category %></p>
-<p><%= activity.address %></p>
-<p><%= activity.phone_number %></p>
-<p><%= link_to activity.url, activity.url, target: '_blank' %></p>
-<%= link_to "directions", "https://maps.google.com/?q=#{activity.latitude},#{activity.longitude}" %>
+<div class= "info-window">
+  <h2><%= activity.title %></h2>
+  <p><%= activity.datetime.strftime("%B %e, %Y") %></p>
+  <p><%= activity.description %></p>
+  <p><em><%= activity.category %></em></p>
+  <p><%= activity.address %></p>
+  <p><%= activity.phone_number %></p>
+  <p ><%= link_to activity.url, activity.url, target: '_blank', style: 'color: #e45521;' %></p>
+  <p><%= link_to " Get directions", "https://maps.google.com/?q=#{activity.latitude},#{activity.longitude}", target: '_blank', class: 'btn-tripmate-black'%></p>
+</div>

@@ -6,7 +6,10 @@ ruby "3.1.2"
 gem "ruby-openai"
 gem "cloudinary"
 gem 'jquery-rails', '~> 4.6'
-gem 'pexels', '~> 0.5.0'
+
+gem 'json', '~> 2.6', '>= 2.6.3'
+gem 'appsignal'
+
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"

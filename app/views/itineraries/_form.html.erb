@@ -17,9 +17,10 @@
   <%= simple_form_for(@itinerary, html: { data: { 'questions-target': 'form' } }) do |f| %>
     <div>
 
-      <span class="text-danger" data-questions-target="question" data-strings="<%= ["So ... which country do you want to go to?"] %>">
+      <span data-questions-target="question" data-strings="<%= ["So ... which country do you want to go to?"] %>">
+
       </span>
-        <%= f.input :answer1, label: false, wrapper_html: { class: 'text-danger' }, input_html: { data: { action: 'keydown.enter->questions#next' }} %>
+        <%= f.input :answer1, label: false, input_html: { data: { action: 'keydown.enter->questions#next' }} %>
 
     </div>
 
