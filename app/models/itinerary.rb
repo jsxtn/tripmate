@@ -1,9 +1,9 @@
 require "open-uri"
 
 class Itinerary < ApplicationRecord
-  after_save if: -> { saved_change_to_name? } do
-    set_photo
-  end
+  # after_save if: -> { saved_change_to_name? } do
+  #   set_photo
+  # end
 
   belongs_to :user
   has_many :activities, dependent: :destroy

@@ -35,9 +35,9 @@ puts "Created 3 Users"
 
 puts "Creating itineraries..."
 
-itinerary1 = Itinerary.create!(name: "Spainish adventure in June!", start_date: "03/06/2024", end_date: "13/06/2024", user_id: joshua.id)
-itinerary2 = Itinerary.create!(name: "Rome was not build in a day", start_date: "14/07/2024", end_date: "16/07/2024", user_id: hafsah.id)
-itinerary3 = Itinerary.create!(name: "Thailand beaches here we come!", start_date: "01/09/2024", end_date: "15/09/2024", user_id: hafsah.id)
+itinerary1 = Itinerary.create!(name: "Spainish adventure in June!", start_date: "03/06/2024", end_date: "13/06/2024", user_id: joshua.id, answer1: "Spain")
+itinerary2 = Itinerary.create!(name: "Rome was not build in a day", start_date: "14/07/2024", end_date: "16/07/2024", user_id: hafsah.id, answer1: "Rome")
+itinerary3 = Itinerary.create!(name: "Thailand beaches here we come!", start_date: "01/09/2024", end_date: "15/09/2024", user_id: hafsah.id, answer1: "Thailand")
 
 
 puts "Created  itineraries"

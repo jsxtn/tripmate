@@ -17,8 +17,9 @@
     <ul class="list-unstyled">
       <% @itineraries.each do |itinerary| %>
         <li> <%= link_to itinerary.name, itinerary_activities_path(itinerary)%> </li>
+        <img src="https://source.unsplash.com/256x256/?<%=itinerary.answer1%>">
 
-        <%= cl_image_tag itinerary.photo.key, alt: "AI-generated image of the location" if itinerary.photo.attached? %>
+        <%# <%= cl_image_tag itinerary.photo.key, alt: "AI-generated image of the location" if itinerary.photo.attached? %>
       <% end %>
     </ul>
   </section>
