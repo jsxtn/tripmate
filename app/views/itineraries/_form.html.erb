@@ -19,20 +19,19 @@
 
   <%= simple_form_for(@itinerary, html: { class: 'mb-5', data: { 'questions-target': 'form', action: 'turbo:submit-start->questions#startSpinning' } }) do |f| %>
     <p></p>
-    <p></p>
     <div>
 
       <span data-questions-target="question" data-strings="<%= ["Which country will you be travelling to?"] %>">
 
       </span>
-        <%= f.input :answer1, label: false, input_html: { data: { action: 'keydown.enter->questions#next' }} %>
+        <%= f.input :answer1, label: false, input_html: { class: 'text-answer-box', data: { action: 'keydown.enter->questions#next' }} %>
 
     </div>
 
     <div>
       <span data-questions-target="question" data-strings="<%= ["Awesome! Ok when will you start your trip?"] %>">
       </span>
-      <%= f.input :start_date, as: :string, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { data: { action: 'input->questions#next', controller: "datepicker" } } %>
+      <%= f.input :start_date, as: :string, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { class: 'text-answer-box', data: { action: 'input->questions#next', controller: "datepicker" } } %>
       <%# <%= f.input :start_date, as: :string,  label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { data: { action: 'keydown.enter->questions#next' } }, input_html: { data: { controller: "datepicker" } } %>
       <%# <%= f.input :custom_field, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { data: { action: 'focusout->questions#next', controller: "datepicker" } } %>
     </div>
@@ -40,38 +39,38 @@
     <div>
       <span data-questions-target="question" data-strings="<%= ["and when do you plan to come back?"] %>">
       </span>
-      <%= f.input :end_date, as: :string, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { data: { action: 'input->questions#next' , controller: "datepicker" }  } %>
+      <%= f.input :end_date, as: :string, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { class: 'text-answer-box', data: { action: 'input->questions#next' , controller: "datepicker" }  } %>
     </div>
 
     <div>
       <span data-questions-target="question" data-strings="<%= ["Nice!  Ok what city/cities! do you want to visit?"] %>">
         <%# <p>What cities do you want to visit?</p> %>
       </span>
-      <%= f.input :answer3, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { data: { action: 'keydown.enter->questions#next' } } %>
+      <%= f.input :answer3, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { class: 'text-answer-box', data: { action: 'keydown.enter->questions#next' } } %>
     </div>
 
     <div>
       <span data-questions-target="question" data-strings="<%= ["Sounds good!  What type of things do you want to do out there?"] %>">
         <%# <p>What type of activities do you like to do?  E.g. sightseeing, nightclubs, beaches etc</p> %>
       </span>
-      <%= f.input :answer4, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { data: { action: 'keydown.enter->questions#next' } }  %>
+      <%= f.input :answer4, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { class: 'text-answer-box', data: { action: 'keydown.enter->questions#next' } }  %>
     </div>
 
     <div>
       <span data-questions-target="question" data-strings="<%= ["Ok got it.  What type of cuisine do you like?  Any dietary requirements?"] %>">
         <%# <p>What type of cuisine preferences do you have?  Are there any dietary preferences/requirements to consider?</p> %>
       </span>
-      <%= f.input :answer5, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { data: { action: 'keydown.enter->questions#next' } } %>
+      <%= f.input :answer5, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { class: 'text-answer-box', data: { action: 'keydown.enter->questions#next' } } %>
     </div>
 
     <div>
       <span data-questions-target="question" data-strings="<%= ["Ok nice.  Lastly, do you or anyone in your group have any accessibility requirements?"] %>">
         <%# <p>Do you or anyone in your travelling group have any accessibility requirements?</p> %>
       </span>
-      <%= f.input :answer6, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: { data: { action: 'keydown.enter->questions#next' } }  %>
+      <%= f.input :answer6, label: false, wrapper_html: { class: 'd-none input-wrapper' }, input_html: {  class: 'text-answer-box', data: { action: 'keydown.enter->questions#next' } }  %>
     </div>
 
-    <%= f.submit "CREATE ITINERARY", class: "btn-register border-3 rounded-3 col-12 d-none", data: { 'questions-target': 'button' } %>
+    <%= f.submit "CREATE ITINERARY", class: "btn-register border-3 rounded-3 col-12 mb-4 d-none", data: { 'questions-target': 'button' } %>
   <% end %>
 
   <div class="spinner d-flex align-items-center justify-content-center d-none" data-questions-target='spinner'>
