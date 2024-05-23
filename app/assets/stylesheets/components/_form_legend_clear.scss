@@ -12,3 +12,30 @@ legend ~ div.form-check:first-of-type {
 .btn-form{
 background-color: none;
 }
+
+.user-form-center {
+  height: 100%;
+  width: 100%;
+  margin-top: 40%;
+}
+
+.user-form-center-lgn {
+  height: 100%;
+  width: 100%;
+  margin-top: 60%;
+}
+
+.form-inputs {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.video-overlay-form {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00ffc8;
+  z-index: -1;
+  opacity: 15%;
+}
