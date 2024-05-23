@@ -17,7 +17,11 @@
       <div class="title-card-bottom-info-bar flex-row align-items-baseline justify-content-between mt-5">
         <%= @itinerary.start_date.strftime("%b %e") %> -
         <%= @itinerary.end_date.strftime("%b %e, %Y") %>
-        <a href="#" class="btn-tripmate-black-share"><i class="fa-solid fa-arrow-up-from-bracket"></i></a>
+
+        <div class="inline-buttons">
+          <a href="#" class="btn-tripmate-black-share"><i class="fa-solid fa-arrow-up-from-bracket"></i></a>
+          <%= image_tag "https://i.pinimg.com/564x/42/b8/19/42b8199cb687ed9c4483fd585870b2ad.jpg", class:"btn-tripmate-black-share-2" %>
+        </div>
       </div>
 
     </div>
