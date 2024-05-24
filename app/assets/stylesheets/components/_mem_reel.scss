@@ -4,9 +4,13 @@
 
 
 .memory-container-2{
-  margin-bottom: 200px;
+  margin-bottom: 90px;
 }
 
+.memory{
+  height: -webkit-fill-available;
+  overflow: scroll;
+}
 
 // @keyframes fadeIn {
 //   0% {
