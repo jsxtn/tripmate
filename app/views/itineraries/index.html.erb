@@ -4,7 +4,7 @@
   <%= render "shared/navbar" %>
 </div>
 
-<div id="map-act" class="itinerary-map position-absolute">
+<div id="map-act" class="itinerary-map position-absolute" data-controller="itineraries">
   <%= render "activities/map" %>
 </div>
 
@@ -17,19 +17,19 @@
   <div class="container-fluid">
     <ul class="list-unstyled">
       <% @itineraries.each do |itinerary| %>
-      <div class="itin-index-card-container card mt-3">
-        <div class="itin-index-card card container-fluid mb-1 d-flex py-3">
-          <div class="container-fluid d-flex align-items-center justify-content-center">
-            <div class="col-5 d-flex content-align-center justify-content-left text-center ms-2 me-2">
-              <img class="itin-index-imgs mt-2 mb-2" src="https://source.unsplash.com/256x256/?<%=itinerary.answer1%>">
-            </div>
-            <div class="itin-index-card-text col-8 d-flex justify-content-center text-left me-2">
-              <li> <h5><%= link_to itinerary.name, itinerary_activities_path(itinerary)%></h5> </li>
+        <div class="itin-index-card-container card mt-3">
+          <div class="itin-index-card card container-fluid mb-1 d-flex py-3">
+            <div class="container-fluid d-flex align-items-center justify-content-center">
+              <div class="col-5 d-flex content-align-center justify-content-left text-center ms-2 me-2">
+                <img class="itin-index-imgs mt-2 mb-2" src="https://source.unsplash.com/256x256/?<%=itinerary.answer1%>">
+              </div>
+              <div class="itin-index-card-text col-8 d-flex justify-content-center text-left me-2">
+                <li> <h5><%= link_to itinerary.name, itinerary_activities_path(itinerary)%></h5> </li>
+              </div>
             </div>
           </div>
         </div>
       <% end %>
-      </div>
     </ul>
   </div>
   <div class="memory card mt-5 py-5" style="
