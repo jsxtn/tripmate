@@ -10,6 +10,7 @@
 
   <div>
     <img class="banner" src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=2400">
+    <%# <img class=“banner” src=“https://source.unsplash.com/2056x256/?travel“> %>
     <div class="act-index container title-card card shadow">
       <div class="container">
        <h1><%=@username%>'s trip to <%=@itinerary.answer1%></h1>
@@ -64,22 +65,22 @@
             <div id="collapse<%= index %>" class="collapse show" aria-labelledby="heading<%= index %>">
               <div class="act-card-body pb-2">
                 <% datetime_activities.each do |activity| %>
-                  <%= link_to activity_path(activity) do %>
-                    <div class="act-list-cards card rounded border-bottom">
+                  <%= link_to activity_path(activity), class: "activity-link" do %>
+                    <div class="act-list-cards card rounded">
                       <div class="card-body">
                         <div class="row">
-                          <div class="act-card-time-bar col-md-2 d-flex justify-content-center">
+                          <div class="act-card-time-bar col-md-2 flex justify-content-center">
                             <p class="card-text">
                               <%= activity.datetime.strftime("%H:%M") %>
                                 </p>
                                   </div>
-                                  <div class="col-8">
+                                  <div class="card-text-container col-8 mb-2">
                                     <p class="card-text"><em><%= activity.category %></em></p>
                                     <h5 class="card-title"><%= activity.title %></h5>
                                     <p class="card-text"><small class="text-body-secondary"><%= activity.city %>, <%= activity.phone_number %></small></p>
                                   </div>
-                                  <div class="col-4 d-flex justify-content-center">
-                                    <img id="act-img" src="https://source.unsplash.com/256x256/?<%= activity.category %>: <%= activity.title %> in <%= activity.country %>">
+                                  <div class="itin-index-img-container col-4 flex justify-content-right">
+                                    <img id="act-img" class="itin-index-img-container" src="https://source.unsplash.com/256x256/?<%= activity.category %>: <%= activity.title %> in <%= activity.country %>">
                                   </div>
                           </div>
 

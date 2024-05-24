@@ -4,11 +4,11 @@
   <%= render "shared/navbar" %>
 </div>
 
-<div class="itinerary-map position-absolute">
+<div id="map-act" class="itinerary-map position-absolute">
   <%= render "activities/map" %>
 </div>
 
-<div class="itin-body-container card py-5 d-flex align-items-center justify-content-center text-left">
+<div class="itin-body-container card py-5 align-items-center justify-content-center text-left">
   <div class="row py-lg-5">
     <div class="container-fluid mt-5">
       <h1><%=@username%>'s Trips</h1>
@@ -58,4 +58,3 @@
 <div class="c2a-button-view-mem">
   <i class="d-flex align-items-center justify-content-center fa-solid fa-images"></i>
 </div>
-
