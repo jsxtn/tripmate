@@ -2,6 +2,13 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
+    const memButton = document.querySelector('.c2a-button-view-mem');
+    const memoryContainer = document.querySelector('.memory');
+
+    memButton.addEventListener('click', function() {
+      $(memoryContainer).fadeToggle();
+    });
+
     const mapButton = document.querySelector('.c2a-button-map-itin');
     let elementsHidden = false;
     console.log(mapButton)
