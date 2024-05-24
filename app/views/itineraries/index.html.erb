@@ -4,11 +4,11 @@
   <%= render "shared/navbar" %>
 </div>
 
-<div class="itinerary-map position-absolute">
+<div id="map-act" class="itinerary-map position-absolute">
   <%= render "activities/map" %>
 </div>
 
-<div class="itin-body-container card py-5 d-flex align-items-center justify-content-center text-left">
+<div class="itin-body-container card py-5 align-items-center justify-content-center text-left">
   <div class="row py-lg-5">
     <div class="container-fluid mt-5">
       <h1><%=@username%>'s Trips</h1>
@@ -62,19 +62,33 @@
 
 <script class="no-show-itin">
   document.addEventListener('DOMContentLoaded', function() {
-    const memButton = document.querySelector('.c2a-button-view-mem');
-    const memoryContainer = document.querySelector('.memory');
     const mapButton = document.querySelector('.c2a-button-map-itin');
-    const otherContent = $('body').children().not('.memory, .no-show-itin, .itinerary-map, .c2a-button-map-itin, #navbar-itin');
-    let elementsHidden = false;
+  let elementsHidden = false;
+  console.log(mapButton)
+  mapButton.addEventListener('click', function() {
+    if (elementsHidden) {
+      // fade in all elements
+      $('body').children().not('.c2a-button-map-itin, .no-show-itin, #navbar-itin, #map-act').fadeIn();
+    } else {
+      // fade out all elements except the specified ones
+      $('body').children().not('.c2a-button-map-itin, .no-show-itin, #navbar-itin, #map-act').fadeOut();
+    }
+    elementsHidden = !elementsHidden;
+  });
 
-    memButton.addEventListener('click', function() {
-      $(memoryContainer).fadeToggle();
-    });
+    // const memButton = document.querySelector('.c2a-button-view-mem');
+    // const memoryContainer = document.querySelector('.memory');
+    // const mapButton = document.querySelector('.c2a-button-map-itin');
+    // const otherContent = $('body').children().not('.memory, .no-show-itin, .itinerary-map, .c2a-button-map-itin, #navbar-itin');
+    // let elementsHidden = false;
 
-    mapButton.addEventListener('click', function() {
-      $(otherContent).fadeToggle();
-    });
+    // memButton.addEventListener('click', function() {
+    //   $(memoryContainer).fadeToggle();
+    // });
+
+    // mapButton.addEventListener('click', function() {
+    //   $(otherContent).fadeToggle();
+    // });
 
     // mapButton.addEventListener('click', function() {
     //   if (elementsHidden) {
