@@ -4,7 +4,7 @@
     <%= render "shared/navbar" %>
   </div>
 
-  <div id="map-act">
+  <div id="map-act" data-controller="activities">
     <%= render "map" %>
   </div>
 
@@ -26,9 +26,9 @@
 
     </div>
   </div>
-  <%#div class="py-5 text-center container">
-    <%#a class="btn btn-primary btn-lg px-4 gap-3 mt-2" <%= link_to "My Itineraries", itineraries_path%></a>
-  <%# </div> %>
+  <div class="py-5 text-center container">
+    <%= link_to "My Itineraries", itineraries_path, class: "btn btn-primary btn-lg px-4 gap-3 mt-2" %>
+  </div>
 
   <%# map button %>
   <div class="c2a-button-map">
@@ -96,39 +96,3 @@
     </div>
   </div>
 </div>
-
-<script class="no-show">
-document.addEventListener('DOMContentLoaded', function() {
-  const mapButton = document.querySelector('.c2a-button-map');
-  let elementsHidden = false;
-
-  mapButton.addEventListener('click', function() {
-    if (elementsHidden) {
-      // fade in all elements
-      $('body').children().not('.c2a-button-map, .no-show, #navbar-act, #map-act').fadeIn();
-    } else {
-      // fade out all elements except the specified ones
-      $('body').children().not('.c2a-button-map, .no-show, #navbar-act, #map-act').fadeOut();
-    }
-    elementsHidden = !elementsHidden;
-  });
-
-  // collapse group and card script
-  const collapseAllButton = document.getElementById('collapseAllButton');
-  const expandAllButton = document.getElementById('expandAllButton');
-
-  collapseAllButton.addEventListener('click', function() {
-    const collapseElements = document.querySelectorAll('.collapse.show');
-    collapseElements.forEach(function(collapseEl) {
-      new bootstrap.Collapse(collapseEl);
-    });
-  });
-
-  expandAllButton.addEventListener('click', function() {
-    const collapseElements = document.querySelectorAll('.collapse');
-    collapseElements.forEach(function(collapseEl) {
-      new bootstrap.Collapse(collapseEl, { toggle: false }).show();
-    });
-  });
-});
-</script>

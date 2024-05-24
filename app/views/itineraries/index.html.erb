@@ -59,32 +59,3 @@
   <i class="d-flex align-items-center justify-content-center fa-solid fa-images"></i>
 </div>
 
-
-<script class="no-show-itin">
-  document.addEventListener('DOMContentLoaded', function() {
-    const memButton = document.querySelector('.c2a-button-view-mem');
-    const memoryContainer = document.querySelector('.memory');
-    const mapButton = document.querySelector('.c2a-button-map-itin');
-    const otherContent = $('body').children().not('.memory, .no-show-itin, .itinerary-map, .c2a-button-map-itin, #navbar-itin');
-    let elementsHidden = false;
-
-    memButton.addEventListener('click', function() {
-      $(memoryContainer).fadeToggle();
-    });
-
-    mapButton.addEventListener('click', function() {
-      $(otherContent).fadeToggle();
-    });
-
-    // mapButton.addEventListener('click', function() {
-    //   if (elementsHidden) {
-    //     otherContent.fadeIn();
-    //     $('.itinerary-map').fadeIn();
-    //   } else {
-    //     otherContent.fadeOut();
-    //     // $('.itinerary-map').fadeOut();
-    //   }
-    //   elementsHidden = !elementsHidden;
-    // });
-  });
-</script>
